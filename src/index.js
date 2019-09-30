@@ -7,8 +7,14 @@
 module.exports = function getTimeForEducation(
     focus = 'family', 
     knowsProgramming = true,
-    config = {family: 4}
+    config = {family: 4}              //study time that student able to spend to study per week
     ) {
-      return 0;
+      let studyTimeNeeded = 1300;     //800 + 500 hours needed
+      if(knowsProgramming) {
+        studyTimeNeeded = 800;        //knows basics then 1300 - 500
+      }
+      
+      //Calculate weeks needed to finish course: studyTime / Time that student can spent per week
+      return Math.ceil(studyTimeNeeded / config[focus]);
   };
   
